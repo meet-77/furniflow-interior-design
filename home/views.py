@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
  
 
 
-@login_required(login_url="/login/")
+# @login_required(login_url="/login/")
 def hero(request):
     # herosection = Herosection.objects.all()
     latest_hero = Herosection.objects.order_by('-id').first() 
