@@ -9,8 +9,7 @@ venv/
 
 # Django
 *.log
-media/
-staticfiles/
+
 
 # VSCode
 .vscode/

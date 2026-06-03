@@ -125,7 +125,7 @@
             class="relative lg:w-60 h-70 lg:bg-[#35736E1A] rounded-2xl flex flex-col items-center pt-45 lg:my-0 my-12"
           >
             <img
-              src="/media/{{ home.product_image }}"
+              src="{{ home.product_image }}"
               alt="{{ home.product_image }}"
               class="absolute -top-10 w-36 h-50 object-contain drop-shadow-md"
             />
@@ -147,7 +147,7 @@
 
           <div class="lg:w-60 flex flex-col items-center text-center">
             <img
-              src="/media/{{ home.product_image }}"
+              src="{{ home.product_image }}"
               class="w- h-48 object-contain mb-4"
             />
             <h1 class="font-bold text-lg">{{ home.product_title }}</h1>
@@ -181,7 +181,7 @@
               class="relative w-10 h-10 bg-[#35736E1A] rounded-full flex flex-col items-center"
             >
               <img
-                src="/media/{{home.Service_image}}"
+                src="{{home.Service_image}}"
                 alt=""
                 class="absolute top-0 w-7 right-4"
               />
@@ -195,7 +195,7 @@
               class="relative w-10 h-10 bg-[#35736E1A] rounded-full flex flex-col items-center"
             >
               <img
-                src="/media/{{home.Service_image}}"
+                src="{{home.Service_image}}"
                 alt=""
                 class="absolute top-0 w-7 right-4"
               />
@@ -210,7 +210,7 @@
               class="relative w-10 h-10 bg-[#35736E1A] rounded-full flex flex-col items-center"
             >
               <img
-                src="/media/{{home.Service_image}}"
+                src="{{home.Service_image}}"
                 alt=""
                 class="absolute top-0 w-7 right-4"
               />
@@ -225,7 +225,7 @@
               class="relative w-10 h-10 bg-[#35736E1A] rounded-full flex flex-col items-center"
             >
               <img
-                src="/media/{{home.Service_image}}"
+                src="{{home.Service_image}}"
                 alt=""
                 class="absolute top-0 w-7 right-4"
               />
@@ -246,7 +246,7 @@
         {% for home in service_image %}
         <div class="">
           <img
-            src="/media/{{home.image}}"
+            src="{{home.image}}"
             alt=""
             class="w-150 lg:h-full lg:absolute top-12 lg:left-18 lg:px-0 px-3"
           />
@@ -267,19 +267,19 @@
           />
           {% for home in design_image %} {% if forloop.counter == 1 %}
           <img
-            src="/media/{{ home.images }}"
+            src="{{ home.images }}"
             alt=""
             class="w-50 rounded-xl lg:relative lg:-top-28 lg:left-155 lg:block hidden"
           />
           {% endif %} {% if forloop.counter == 2 %}
           <img
-            src="/media/{{ home.images }}"
+            src="{{ home.images }}"
             alt=""
             class="w-80 rounded-xl lg:relative lg:top-0 lg:left-125 lg:block hidden z-10"
           />
           {% endif %} {% if forloop.counter == 3 %}
           <img
-            src="/media/{{ home.images }}"
+            src="{{ home.images }}"
             alt=""
             class="w-130 rounded-2xl lg:absolute lg:top-15 lg:left-20  lg:px-0 px-3 z-2"
           />
@@ -336,7 +336,7 @@
         <div class="flex items-center gap-5 lg:my-0 my-5">
           <div class="bg-[#35736E4D] rounded-xl">
             <img
-              src="/media/{{ home.About_image }}"
+              src="{{ home.About_image }}"
               alt=""
               class="w-25 relative lg:-top-5"
             />
@@ -352,7 +352,7 @@
         {% elif forloop.counter == 2 %}
         <div class="flex items-center gap-5 lg:my-0 my-5">
           <div class="bg-[#35736E4D] rounded-xl">
-            <img src="/media/{{ home.About_image }}" alt="" class="w-25 relative
+            <img src="{{ home.About_image }}" alt="" class="w-25 relative
             lg:-top-5"" />
           </div>
           <div class="">
@@ -368,7 +368,7 @@
           <div class="flex items-center gap-5 pt-2">
             <div class="bg-[#35736E4D] rounded-xl">
               <img
-                src="/media/{{ home.About_image }}"
+                src="{{ home.About_image }}"
                 alt=""
                 class="relative lg:-top-3 w-25"
               />
@@ -440,7 +440,7 @@
  
             <div class="lg:py-0 py-5">
               <img
-                src="/media/{{ home.Blog_image }}"
+                src="{{ home.Blog_image }}"
                 alt=""
                 class="w-120 rounded-2xl "
               />
