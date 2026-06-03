@@ -1,0 +1,602 @@
+{% load static tailwind_tags %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+      <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+    {% tailwind_css %}
+    <title>home</title>
+
+  </head>
+  <body class="capitalize bg-[#EFF2F1] lg:px-0 ">
+    <div class="bg-[#3b5d50] lg:py-0 py-3">
+         <div class="   container lg:mx-45 lg:py-10 px-3">
+            <div class="  flex justify-between items-center">
+
+      <!-- Logo -->
+            <h1 class="text-white text-4xl font-medium ">Furni.</h1>
+
+            <!-- Mobile Toggle Button -->
+            <button id="menu-btn" class="lg:hidden text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+              
+            <!-- Desktop Menu -->
+ 
+           <ul id="menu"
+              class="fixed lg:static top-16 lg:top-0 left-0 w-64 lg:w-auto h-full lg:h-auto
+                transform -translate-x-full lg:translate-x-0 transition-transform duration-500 ease-in-out
+                 flex flex-col gap-10 lg:flex-row space-y-4 lg:space-y-0 lg:space-x-6 p-4 lg:p-0 bg-[#3b5d50]  lg:bg-transparent z-50">
+                <li class="text-2xl text-white "><a href="#hero" class="border-b-4 border-[#f9bf29]">Home</a></li>
+                <li class="text-2xl text-white "><a href="#product">About Us</a></li>
+                <li class="text-2xl text-white "><a href="#">Services</a></li>
+                <li class="text-2xl text-white "><a href="#blog">Blog</a></li>
+                <li class="text-2xl text-white "><a href="#nature">Contact Us</a></li>
+                <div class="text-white text-2xl flex gap-6 ml-4">
+                  <a href="#"  ><i class="fa-regular fa-user"></i></a>
+                  <a href="#" ><i class="fa fa-shopping-cart"></i></a>
+                </div>
+              </ul>
+      
+          </div>
+ 
+
+          
+        <section class="lg:flex justify-between  items-center lg:py-5  capitalize flex-col lg:flex-row">
+            <div class="px-6 lg:px-0 w-full lg:py-0 py-10">
+              {% if hero %}
+                <h1 class="text-3xl lg:text-6xl font-medium text-white text-center lg:text-left lg:w-150">
+                {{ hero.hero_name }}
+              </h1>
+   
+              {% endif %}
+
+              <div class="flex flex-col sm:flex-row lg:flex-row items-center justify-center lg:justify-start gap-4 mt-10 lg:mt-5">
+                <a
+                  href=""
+                  class="bg-[#f9bf29] text-black py-3 px-6 rounded-full text-base w-full sm:w-auto text-center lg:my-10 lg:mx-5"
+                >
+                  Show Now
+                </a>
+                <a
+                  href=""
+                  class="bg-[#3b5d50] text-white py-3 px-7 rounded-full border border-white text-base w-full sm:w-auto text-center mx-5 "
+                >
+                  Explore
+                </a>
+              </div>
+            </div>
+            
+       <div class="relative hidden lg:block w-full mt-10 lg:mt-0 border-2">
+            <img
+              src="{% static 'images/Dotted.png' %}"
+              alt="Dotted"
+              class="absolute z-10 right-0 top-20"
+            />
+            <img
+              src="{% static 'images/hero.png' %}"
+              alt="Hero"
+              class="relative z-20 w-450 -left-30"
+            />
+          </div>
+
+         </section>
+      </div>
+    </div>
+
+    {% comment %} ## product ## {% endcomment %}
+    <section class="bg-[#EFF2F1]">
+      <div class="lg:flex justify-between lg:mx-45 lg:py-10 py-10  container lg:px-0 ">
+        <div class="lg:py-10 lg:px-0 px-6 ">
+          {% for home in detail %}
+          <h1 class="text-5xl text-[#2F2F2F] font-bold lg:w-100">
+            {{home.title}}
+          </h1>
+          <p class="lg:w-50 text-[#6A6A6A] py-3">{{home.sub_title}}</p>
+          {% endfor %}
+          <button
+            class="bg-[#2F2F2F] py-3 px-7 rounded-full border-1 border-white text-white text-1xl lg:my-0 mt-3 lg:w-fit w-full"
+          >
+            <a href=""> Explore </a>
+          </button>
+ 
+        </div>
+
+        <div
+          class="lg:flex justify-around items-center  gap-6 py-10 flex-wrap w-full "
+        >
+          {% for home in product %} {% if forloop.counter == 1  %}
+
+          <div
+            class="relative lg:w-60 h-70 lg:bg-[#35736E1A] rounded-2xl flex flex-col items-center pt-45 lg:my-0 my-12"
+          >
+            <img
+              src="/media/{{ home.product_image }}"
+              alt="{{ home.product_image }}"
+              class="absolute -top-10 w-36 h-50 object-contain drop-shadow-md"
+            />
+
+            <div class="text-center mt-4">
+              <h1 class="font-bold text-lg">{{ home.product_title }}</h1>
+              <h2 class="font-semibold text-md">
+                ${{ home.product_price }}.00
+              </h2>
+            </div>
+
+            <button
+              class="absolute bottom-[-20px] bg-black text-white rounded-full w-10 h-10 flex items-center justify-center text-4xl pb-2"
+            >
+              +
+            </button>
+          </div>
+          {% else %}
+
+          <div class="lg:w-60 flex flex-col items-center text-center">
+            <img
+              src="/media/{{ home.product_image }}"
+              class="w- h-48 object-contain mb-4"
+            />
+            <h1 class="font-bold text-lg">{{ home.product_title }}</h1>
+            <h2 class="font-semibold text-md">${{ home.product_price }}.00</h2>
+          </div>
+          {% endif %} {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    {% comment %} ### choose #### {% endcomment %}
+
+    <section
+      class="bg-[#EFF2F1] relative lg:flex justify-between gap-10 lg:mx-45 lg:py-10 container lg:px-0 px-3"
+    >
+      <div class="relative">
+        <h1 class="text-4xl font-bold text-[#2F2F2F] pt-15 pb-5">
+          Why Choose Us
+        </h1>
+        <p class="text-[#6A6A6A] lg:w-120">
+          Donec mattis porta eros, aliquet finibus risus interdum at. Nulla
+          vivethe as it was for us to know what was to be done. the
+        </p>
+        <div
+          class="flex flex-wrap justify-between flex-row-reverse py-15 lg:w-170 lg:gap-15 w-full  gap-5"
+        >
+          {% for home in service %}
+           {% if forloop.counter == 4 %}
+          <div class=" lg:w-fit w-45">
+            <div
+              class="relative w-10 h-10 bg-[#35736E1A] rounded-full flex flex-col items-center"
+            >
+              <img
+                src="/media/{{home.Service_image}}"
+                alt=""
+                class="absolute top-0 w-7 right-4"
+              />
+            </div>
+            <h1 class="text-[#2F2F2F] font-bold">{{home.Service_name}}</h1>
+          </div>
+          {% endif %}
+                     {% if forloop.counter == 3 %}
+          <div class=" lg:w-fit w-45">
+            <div
+              class="relative w-10 h-10 bg-[#35736E1A] rounded-full flex flex-col items-center"
+            >
+              <img
+                src="/media/{{home.Service_image}}"
+                alt=""
+                class="absolute top-0 w-7 right-4"
+              />
+            </div>
+            <h1 class="text-[#2F2F2F] font-bold">{{home.Service_name}}</h1>
+            <p class="text-[#6A6A6A] lg:w-70">{{home.Service_subtitle}}</p>
+          </div>
+          {% endif %}
+                     {% if forloop.counter == 2 %}
+          <div class=" lg:w-fit w-45">
+            <div
+              class="relative w-10 h-10 bg-[#35736E1A] rounded-full flex flex-col items-center"
+            >
+              <img
+                src="/media/{{home.Service_image}}"
+                alt=""
+                class="absolute top-0 w-7 right-4"
+              />
+            </div>
+            <h1 class="text-[#2F2F2F] font-bold">{{home.Service_name}}</h1>
+            <p class="text-[#6A6A6A] lg:w-70">{{home.Service_subtitle}}</p>
+          </div>
+          {% endif %}
+                     {% if forloop.counter == 1 %}
+          <div class=" lg:w-fit w-45">
+            <div
+              class="relative w-10 h-10 bg-[#35736E1A] rounded-full flex flex-col items-center"
+            >
+              <img
+                src="/media/{{home.Service_image}}"
+                alt=""
+                class="absolute top-0 w-7 right-4"
+              />
+            </div>
+            <h1 class="text-[#2F2F2F] font-bold">{{home.Service_name}}</h1>
+            <p class="text-[#6A6A6A] lg:w-70">{{home.Service_subtitle}}</p>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="lg:w-200 relative  ">
+        <img
+          src="{% static 'images/Dot1-Photoroom.png' %}"
+          alt=""
+          class="lg:w-60 lg:block hidden"
+        />
+        {% for home in service_image %}
+        <div class="">
+          <img
+            src="/media/{{home.image}}"
+            alt=""
+            class="w-150 lg:h-full lg:absolute top-12 lg:left-18 lg:px-0 px-3"
+          />
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    {% comment %} ## design #### {% endcomment %}
+
+    <section class="my-13">
+      <div class="container lg:mx-45 lg:flex justify-between gap-10 py-10 lg:px-0 px-3 " >
+        <div class="lg:w-450 relative">
+          <img
+            src="{% static 'images/Dot3-Photoroom.png' %}"
+            alt=""
+            class="relative lg:block hidden"
+          />
+          {% for home in design_image %} {% if forloop.counter == 1 %}
+          <img
+            src="/media/{{ home.images }}"
+            alt=""
+            class="w-50 rounded-xl lg:relative lg:-top-28 lg:left-155 lg:block hidden"
+          />
+          {% endif %} {% if forloop.counter == 2 %}
+          <img
+            src="/media/{{ home.images }}"
+            alt=""
+            class="w-80 rounded-xl lg:relative lg:top-0 lg:left-125 lg:block hidden z-10"
+          />
+          {% endif %} {% if forloop.counter == 3 %}
+          <img
+            src="/media/{{ home.images }}"
+            alt=""
+            class="w-130 rounded-2xl lg:absolute lg:top-15 lg:left-20  lg:px-0 px-3 z-2"
+          />
+          {% endif %} {% endfor %}
+        </div>
+
+        <div class="lg:py-14 py-8">
+          {% for home in design %}
+          <h1 class="text-4xl font-bold text-[#2F2F2F] lg:w-100">
+            {{home.Design_name}}
+          </h1>
+          {% endfor %}
+          <p class="lg:text-[20px]  text-[#6A6A6A] py-6 lg:w-160">
+            Donec mattis porta eros, aliquet finibus risus interdum at. Nulla
+            vivethe as it was for us to know what was to be done. the this is a
+            long post for the text.`This small text has to be place here, since
+            this is a place holder. You can also chane it.
+          </p>
+
+          <div class="  flex items-center flex-wrap justify-between lg:py-7">
+            {% for home in design_text %}
+            <div class="flex items-center gap-2 lg:py-5 lg:w-70 w-40 py-3">
+              <i class="fa-solid fa-circle-dot fa-rotate-180 fa-sm"></i>
+              <p>{{home.subtext}}</p>
+            </div>
+            <div class="flex items-center gap-2 lg:py-5 lg:w-70 w-40 py-3">
+              <i class="fa-solid fa-circle-dot fa-rotate-180 fa-sm"></i>
+              <p>{{home.subtext}}</p>
+            </div>
+            <div class="flex items-center gap-2 lg:py-5 lg:w-70 w-40 py-3">
+              <i class="fa-solid fa-circle-dot fa-rotate-180 fa-sm"></i>
+              <p>{{home.subtext}}</p>
+            </div>
+            <div class="flex items-center gap-2 lg:py-5 lg:w-70 w-40 py-3">
+              <i class="fa-solid fa-circle-dot fa-rotate-180 fa-sm"></i>
+              <p>{{home.subtext}}</p>
+            </div>
+            {% endfor %}
+          </div>
+          <button
+            class="bg-[#2F2F2F] py-3 px-7 rounded-full border-1 border-white text-white text-1xl lg:my-0 mt-3 lg:w-fit w-full"
+          >
+            <a href=""> Explore </a>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="lg:px-0 px-3">
+      <div
+        class="container lg:mx-45 lg:flex justify-between flex-row-reverse gap-10 lg:py-5 "
+      >
+        {% for home in about %} {% if forloop.counter == 3 %}
+        <div class="flex items-center gap-5 lg:my-0 my-5">
+          <div class="bg-[#35736E4D] rounded-xl">
+            <img
+              src="/media/{{ home.About_image }}"
+              alt=""
+              class="w-25 relative lg:-top-5"
+            />
+          </div>
+          <div class="">
+            <h1 class="text-1xl font-bold">{{home.About_title}}</h1>
+            <p class="text-[#6A6A6A] w-70">{{home.About_subtext}}</p>
+            <button class="text-1xl font-medium text-[#6A6A6A]">
+              {{home.About_more}}
+            </button>
+          </div>
+        </div>
+        {% elif forloop.counter == 2 %}
+        <div class="flex items-center gap-5 lg:my-0 my-5">
+          <div class="bg-[#35736E4D] rounded-xl">
+            <img src="/media/{{ home.About_image }}" alt="" class="w-25 relative
+            lg:-top-5"" />
+          </div>
+          <div class="">
+            <h1 class="text-1xl font-bold">{{home.About_title}}</h1>
+            <p class="text-[#6A6A6A] w-70">{{home.About_subtext}}</p>
+            <button class="text-1xl font-medium text-[#6A6A6A]">
+              {{home.About_more}}
+            </button>
+          </div>
+        </div>
+        {% elif forloop.counter == 1 %}
+        <div class="  ">
+          <div class="flex items-center gap-5 pt-2">
+            <div class="bg-[#35736E4D] rounded-xl">
+              <img
+                src="/media/{{ home.About_image }}"
+                alt=""
+                class="relative lg:-top-3 w-25"
+              />
+            </div>
+            <div class="">
+              <h1 class="text-1xl font-bold">{{home.About_title}}</h1>
+              <p class="text-[#6A6A6A] w-70">{{home.About_subtext}}</p>
+              <button class="text-1xl font-medium text-[#6A6A6A]">
+                {{home.About_more}}
+              </button>
+            </div>
+          </div>
+        </div>
+        {% endif %} {% endfor %}
+      </div>
+    </section>
+
+   <section class="py-5 lg:my-15 lg:px-0 px-3">
+  <div class="container lg:mx-45">
+    <h1 class="text-5xl text-center font-bold py-5">Testimonials</h1>
+
+    <div class="flex items-center justify-between gap-4">
+      <!-- Left button -->
+      <button onclick="changeSlide(-1)" class="bg-gray-300 hover:bg-gray-400 text-black rounded-full w-15 h-15 text-5xl pb-3 pr-0.5 flex items-center justify-center">
+        &lt;
+      </button>
+
+      <!-- Testimonial content -->
+      <div class="text-center flex-1" id="testimonial-box">
+        {% for t in testimonual %}
+          <div class="testimonial hidden" data-index="{{ forloop.counter0 }}">
+            <p class="text-3xl font-bold italic mb-6">“{{ t.text }}”</p>
+            <div class="flex justify-center mb-4 pt-10">
+              <img src="{{ t.image.url }}" alt="{{ t.name }}" class="w-24 h-24 rounded-full object-cover">
+            </div>
+            <h3 class="text-xl font-semibold">{{ t.name }}</h3>
+            <p class="text-sm text-gray-600">{{ t.role }}</p>
+          </div>
+        {% empty %}
+          <p>No testimonials available.</p>
+        {% endfor %}
+      </div>
+
+      <!-- Right button -->
+      <button onclick="changeSlide(1)" class="bg-green-800 hover:bg-green-900 text-white rounded-full w-15 h-15 text-5xl pb-3 pl-0.5 flex items-center justify-center">
+        &gt;
+      </button>
+    </div>
+
+    <!-- Dots -->
+    <div class="dots flex justify-center gap-4 lg:my-8 my-5">
+      {% for t in testimonual %}
+        <i class="fa-solid fa-circle fa-2xs dot" data-index="{{ forloop.counter0 }}" style="color: #d9d9d9"></i>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+    <section id="blog" class="container lg:mx-45 lg:px-0 px-3">
+      <div class="flex justify-between items-center">
+        <h1 class="lg:text-4xl text-3xl font-bold text-[#2F2F2F]">Recent Blog</h1>
+        <p class="lg:text-2xl text-1xl font-bold text-[#2F2F2F] border-b-5">
+          View All Posts
+        </p>
+      </div>
+
+      <div class="lg:flex justify-between items-center lg:py-10 py-5">
+        {% for home in blog %}
+ 
+            <div class="lg:py-0 py-5">
+              <img
+                src="/media/{{ home.Blog_image }}"
+                alt=""
+                class="w-120 rounded-2xl "
+              />
+
+              <h1 class="text-2xl font-medium py-2">{{home.Blog_title}}</h1>
+              <p class="text-[#2F2F2F]">{{home.Blog_subtext}}</p>
+            </div>
+ 
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class=" bg-[#FFFFFF] mt-40  lg:px-0 px-3" id="footer">
+      <div class=" container lg:mx-45 py-6">
+        <div class="lg:flex justify-between" id="first-footer ">
+          <div class="py-20">
+            <h2 class="text-2xl font-medium py-3">
+              <i class="fa-regular fa-envelope"></i> Subscribe to Newsletter
+            </h2>
+            <form class="lg:flex gap-3 items-center">
+              <input
+                type="text"
+                placeholder="Enter your name"
+                class="border-1 py-2 px-5 w-70"
+              />
+              <input
+                type="text"
+                placeholder="Enter your E-mail"
+                class="border-1 py-2 px-5 w-70"
+              />
+              <button class="bg-[#35736E] px-3 py-3 rounded-2xl">
+                <i
+                  class="fa-solid fa-paper-plane fa-2xl"
+                  style="color: #ffffff"
+                  id="plane"
+                ></i>
+              </button>
+            </form>
+          </div>
+          <div class="">
+            <img
+              src="{% static 'images/sofa.png' %}"
+              alt=""
+              class="lg:w-130 relative lg:-top-30 lg:block hidden"
+            />
+          </div>
+        </div>
+        <h2 class="text-3xl font-medium py-3">Furni.</h2>
+        <div class="" id="second-footer">
+          <div class=" lg:flex items-center gap-30">
+            <div class="footer-brand py-6">
+              <p class="text-[#6A6A6A] w-100">
+                Donec mattis porta eros, aliquet finibus risus interdum at.
+                Nulla vivethe as it was for us to know what was to be done. the
+                this is a long post for the text. This small text has to be
+                place here, since this is
+              </p>
+            </div>
+            <div class=" text-[#6A6A6A] flex justify-between lg:gap-40">
+              <div class=" ">
+                <h4>About us</h4>
+                <ul>
+                  <li><a href="#">Services</a></li>
+                  <li><a href="#">Blog</a></li>
+                  <li><a href="#">Contact us</a></li>
+                </ul>
+              </div>
+              <div class=" ">
+                <h4>Support</h4>
+                <ul>
+                  <li>
+                    <a href="#">Knowledge <span id="delet"> base</span></a>
+                  </li>
+                  <li><a href="#">Live chat</a></li>
+                </ul>
+              </div>
+              <div class=" ">
+                <h4>Jobs</h4>
+                <ul>
+                  <li><a href="#">Our team</a></li>
+                  <li><a href="#">Leadership</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                </ul>
+              </div>
+              <div class=" ">
+                <h4>Nordic Chair</h4>
+                <ul>
+                  <li><a href="#">Kruzo Aero</a></li>
+                  <li><a href="#">Ergonomic</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+              <div class="flex gap-6 items-center py-3" >
+                     <div class="border-1 w-fit px-4 py-3 rounded-full  bg-[#D9D9D9]">
+                            <i class="fa-brands fa-facebook-f fa-xl"></i>
+                     </div>
+                     <div class="border-1 w-fit px-3 py-3 rounded-full  bg-[#D9D9D9]">
+                            <i class="fa-brands fa-instagram fa-xl"></i>
+                     </div>
+                  <div class="border-1 w-fit px-3 py-3 rounded-full  bg-[#D9D9D9]">
+                    <i class="fa-brands fa-twitter fa-xl"></i>
+                </div>
+                <div class="border-1 w-fit px-3 py-3 rounded-full  bg-[#D9D9D9]">
+                  <i class="fa-brands fa-linkedin-in fa-xl"></i>
+               </div>
+              </div>
+              <div class="border-1 border-[#EFF2F1] my-6"></div>
+
+              <div class="condition lg:flex justify-between items-center tex-[#6A6A6A] py-3">
+                  <p>Copyright 2022 degraft87@gmail.com. All Rights Reserved.</p>  
+                  <div class="flex gap-15">
+                  <h5>Terms & Conditions</h5> <h6>private policy</h6>
+                    </div> 
+                   </div>
+              </div>
+      </div>
+    </section>
+
+    <script>
+      const btn = document.getElementById('menu-btn');
+      const menu = document.getElementById('menu');
+
+      btn.addEventListener('click', () => {
+        menu.classList.toggle('-translate-x-full');
+        menu.classList.toggle('translate-x-0');
+      });
+
+        {% comment %} testimonaul  {% endcomment %}
+
+
+      const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.dot');
+        let index = 0;
+
+        
+        function showTestimonial(i) {
+          testimonials.forEach((t, idx) => {
+            t.classList.toggle('hidden', idx !== i);
+          });
+
+          dots.forEach((dot, idx) => {
+            dot.style.color = idx === i ? '#385d50' : '#d9d9d9';
+          });
+        }
+
+          function changeSlide(direction) {
+            index = (index + direction + testimonials.length) % testimonials.length;
+            showTestimonial(index);
+          }
+
+          showTestimonial(index);
+    </script>
+
+  </body>
+</html>
